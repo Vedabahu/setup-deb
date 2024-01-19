@@ -16,4 +16,8 @@ fi
 
 cd "$DOTFILES_DIR"
 
-ansible-playbook --diff "$DOTFILES_DIR/main.yml"
+ansible-playbook --ask-become-pass "$DOTFILES_DIR/main.yml"
+
+echo "Installing Oh My ZSH!"
+
+sh -c "$(curl -fsSL https://install.ohmyz.sh)"

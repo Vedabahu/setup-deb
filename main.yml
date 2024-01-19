@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Install the dependencies
+    apt:
+      name:
+        - clang
+        - stow
+        - fuse
+        - libfuse2
+        - wget
+        - tmux
+        - unzip
+        - zip
+        - python3-venv
+        - zsh
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
