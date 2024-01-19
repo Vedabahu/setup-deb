@@ -7,6 +7,13 @@ if ! [ -x "$(command -v ansible)" ]; then
     sudo apt-get install ansible
 fi 
 
+
+if [[ -f "$DOTFILES_DIR/requirements.yml" ]]; then
+    cd "$DOTFILES_DIR"
+
+    ansible-galaxy install -r requirements.yml
+fi 
+
 cd "$DOTFILES_DIR"
 
-ansible-galaxy install -r requirements.yml
+ansible-playbook --diff "$DOTFILES_DIR/main.yml"
