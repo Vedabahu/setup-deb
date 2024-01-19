@@ -4,7 +4,7 @@ set -e
 DOTFILES_DIR="$HOME/.dotfiles"
 
 if ! [ -x "$(command -v ansible)" ]; then
-    sudo apt-get install ansible
+    sudo apt-get install ansible -y
 fi 
 
 
